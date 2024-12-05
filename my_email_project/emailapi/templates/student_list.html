@@ -1,0 +1,39 @@
+{% extends 'nav.html' %}
+
+{% block title %}Student List{% endblock %}
+
+{% block content %}
+<div class="form-container1">
+    <h2>All Students</h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th class="email">Email</th>
+            <th>Date of Birth</th>
+            <th>Father's Name</th>
+            <th>Father's Mobile</th>
+            <th>Mother's Name</th>
+            <th>Mother's Mobile</th>
+            <th>Actions</th>
+        </tr>
+        {% for student in students %}
+        <tr>
+            <td>{{ student.first_name }} {{ student.last_name }}</td>
+            <td>{{ student.email }}</td>
+            <td>{{ student.date_of_birth }}</td>
+            <td>{{ student.father_name }}</td>
+            <td>{{ student.father_mobile }}</td>
+            <td>{{ student.mother_name }}</td>
+            <td>{{ student.mother_mobile }}</td>
+            <td>
+                <a href="{% url 'update_student' student.pk %}">Update</a> |
+                <a href="{% url 'delete_student' student.pk %}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{% url 'add_student' %}">Add Student</a>
+</div>
+    {% endblock %}
+
+

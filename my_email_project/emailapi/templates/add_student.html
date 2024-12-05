@@ -1,0 +1,16 @@
+{% extends 'nav.html' %}
+
+{% block title %}Student Admission{% endblock %}
+
+{% block content %}
+   
+
+    <div class="form-container1">
+        <h2>Student Admission Form</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+{% endblock %}

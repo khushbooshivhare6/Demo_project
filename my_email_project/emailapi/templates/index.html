@@ -1,0 +1,27 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Send Email</title>
+</head>
+<body>
+    <h2>Send Us Your Message</h2>
+
+</body>
+</html> -->
+{% extends 'base.html' %}
+
+{% block title %}Contact Us{% endblock %}
+
+{% block content %}
+    <h2>Contact Us</h2>
+    <form method="POST" action="{% url 'index' %}">
+        {% csrf_token %}
+        <label for="email">Your Email:</label>
+        <input type="email" name="email" required><br><br>
+        <!-- <label for="emails">Sender Email:</label>
+        <input type="email" name="emails" required><br><br> -->
+        <label for="message">Your Message:</label><br>
+        <textarea name="message" rows="5" required></textarea><br><br>
+        <button type="submit">Send Message</button>
+    </form>
+{% endblock %}
